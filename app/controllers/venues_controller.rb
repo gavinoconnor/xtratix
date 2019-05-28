@@ -30,6 +30,14 @@ class VenuesController < ApplicationController
     end
   end
 
+  def search
+    @response = @remote.events
+    @response.results.each do |result|
+    result.venue.metro_area.state
+    end
+
+  end
+
   def destroy
     @venue = Venue.find(params[:id])
     @venue.destroy
@@ -45,5 +53,4 @@ class VenuesController < ApplicationController
       :address
     )
   end
-
 end

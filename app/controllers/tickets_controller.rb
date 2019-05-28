@@ -6,10 +6,17 @@ class TicketsController < ApplicationController
 
   def new
     @ticket = Ticket.new
+    @venues = Venue.all
+    @users = User.all
   end
 
   def show
     @ticket = Ticket.find(params[:id])
+  end
+
+  def create
+    @ticket = Ticket.create(ticket_params)
+    redirect_to @ticket
   end
 
   def edit
@@ -37,6 +44,7 @@ class TicketsController < ApplicationController
       :available,
       :user_id,
       :venue_id,
+      :artist_name
     )
   end
 
