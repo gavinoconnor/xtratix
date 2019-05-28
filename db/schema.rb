@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_28_145844) do
+ActiveRecord::Schema.define(version: 2019_05_28_174144) do
 
   create_table "friendships", force: :cascade do |t|
     t.integer "user_id"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2019_05_28_145844) do
     t.datetime "event_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "artist_name"
     t.index ["user_id"], name: "index_tickets_on_user_id"
     t.index ["venue_id"], name: "index_tickets_on_venue_id"
   end

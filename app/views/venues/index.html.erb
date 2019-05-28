@@ -1,5 +1,8 @@
 <h1>Venue Index</h1>
 
+<% results = @remote.events('Iron Maiden') %>
+<%=results.name%>
+
 <ul>
 <% @venues.each do |venue| %>
 <li>
