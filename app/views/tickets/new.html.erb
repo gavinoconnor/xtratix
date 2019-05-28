@@ -1,4 +1,5 @@
-<h1> Ticket New </h1>
+<h1> Upload Ticket </h1>
+
 
 <%=form_for @ticket do |f|%>
 <%=f.label "artist name" %>
@@ -6,6 +7,5 @@
 <%=f.label "event date" %>
 <%=f.date_field :event_date %>
 <%=f.collection_select :venue_id, @venues, :id, :name %>
-<%=f.collection_select :user_id, @users, :id, :username %>
 <%=f.submit "Submit" %>
-<%end%>
+<% end %>

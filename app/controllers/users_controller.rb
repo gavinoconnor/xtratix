@@ -10,9 +10,14 @@ class UsersController < ApplicationController
   end
 
   def create
-   @user = User.create(user_params)
+   @user = User.new(user_params)
+   if @user.save
    session[:user_id] = @user.id
      redirect_to @user
+   else
+     flash[:notice] = "Invalid username or password"
+     render :new
+   end
  end
 
    def show
