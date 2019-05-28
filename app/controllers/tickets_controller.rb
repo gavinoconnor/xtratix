@@ -20,11 +20,9 @@ class TicketsController < ApplicationController
     @ticket = Ticket.find_by(params[:id])
     if @ticket.update(ticket_params)
       redirect_to @ticket
-
   end
 
   def destroy
-    @ticket = Ticket.find_by(params[:id])
     @ticket = Ticket.find_by(params[:id])
     @ticket.destroy
     flash[:notice] = "Ticket Deleted."
