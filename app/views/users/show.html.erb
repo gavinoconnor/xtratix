@@ -1,18 +1,20 @@
-<h1><%=@user.username.capitalize%>'s Profile </h1>
+<h1><%=@user.username%>'s Profile </h1>
 
 <h2> My Info </h2>
 
-<%=@user.username%><br>
-<%=@user.location%><br>
-<%=@user.age%><br>
-<%=@user.relationship%><br>
-<%=@user.gender%><br>
+
+<h4>Name:</h4> <%=@user.username%><br>
+<h4>Location:</h4> <%=@user.location%><br>
+<h4>Age:</h4> <%=@user.age%><br>
+<h4>Relationship Status:</h4> <%=@user.relationship%><br>
+<h4>Gender:</h4> <%=@user.gender%><br><br>
+
+<% if current_user == @user %>
+<%= button_to 'Delete Account', user_path(@user), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
 
 <h2>My Friends </h2>
 
 <%@user.friends.each do |friend|%>
 <%=link_to friend.name, user_path(friend.id)%><br>
 <%end%>
-
-
-<%=button_to "delete", user_path(@user.id), method: :delete%>

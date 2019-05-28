@@ -5,20 +5,20 @@
 
 <%=form_for @user do |f|%>
 
-<%=f.label "Name" %>
-<%=f.text_field :username %>
+<%=f.label "Name:" %>
+<p><%=f.text_field :username %></p><br>
 
-<%=f.label "Location" %>
-<%=f.text_field :location %>
+<%=f.label "Location:" %>
+<p><%=f.text_field :location %></p><br>
 
-<%=f.label "Age" %>
-<%=f.number_field :age %>
+<%=f.label "Age:" %>
+<p><%=f.number_field :age %></p><br>
 
-<%=f.label "Relationship Status" %>
-<%=f.text_field :relationship %>
+<%=f.label "Relationship Status:" %>
+<p><%=f.text_field :relationship %></p><br>
 
-<%=f.label "Gender" %>
-<%=f.text_field :gender %>
+<%=f.label "Gender:" %>
+<p><%=f.text_field :gender %></p><br>
 
 <%=f.submit "Submit" %>
 
