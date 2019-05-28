@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :venues
   resources :users
 
-  # patch '/friend_list', to: 'friend_list#update'
-
+  get '/login', to: 'sessions#new', as: 'login'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy', as: 'logout'
 end
