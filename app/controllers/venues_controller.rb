@@ -12,6 +12,7 @@ class VenuesController < ApplicationController
     @venue = Venue.new(venue_params)
     if @venue.save
       redirect_to @venue
+    end
   end
 
   def show
@@ -26,6 +27,7 @@ class VenuesController < ApplicationController
     @venue = Venue.find_by(params[:id])
     if @venue.update(venue_params)
       redirect_to @venue
+    end
   end
 
   def destroy

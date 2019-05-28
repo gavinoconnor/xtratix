@@ -20,6 +20,7 @@ class TicketsController < ApplicationController
     @ticket = Ticket.find_by(params[:id])
     if @ticket.update(ticket_params)
       redirect_to @ticket
+    end
   end
 
   def destroy
