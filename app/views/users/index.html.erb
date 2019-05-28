@@ -1,0 +1,13 @@
+<h1> Users#Index</h1>
+
+<%@users.each do |user| %>
+<%=user.name%><br>
+<%end%>
+
+
+<hr>
+
+<%@users.map do |user| %>
+<%= link_to user.name, user %>
+<%=button_to "add friend", user_path(user.id)%>
+<%end%>

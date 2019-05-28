@@ -2,5 +2,7 @@ Rails.application.routes.draw do
   resources :tickets
   resources :venues
   resources :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  # patch '/friend_list', to: 'friend_list#update'
+
 end

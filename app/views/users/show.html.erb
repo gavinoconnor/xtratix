@@ -1,0 +1,18 @@
+<h1><%=@user.name.capitalize%>'s Profile </h1>
+
+<h2> My Info </h2>
+
+<%=@user.name%><br>
+<%=@user.location%><br>
+<%=@user.age%><br>
+<%=@user.relationship%><br>
+<%=@user.gender%><br>
+
+<h2>My Friends </h2>
+
+<%@user.friends.each do |friend|%>
+<%=link_to friend.name, user_path(friend.id)%><br>
+<%end%>
+
+
+<%=button_to "delete", user_path(@user.id), method: :delete%>
