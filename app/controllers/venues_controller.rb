@@ -16,22 +16,22 @@ class VenuesController < ApplicationController
   end
 
   def show
-    @venue = Venue.find_by(params[:id])
+    @venue = Venue.find(params[:id])
   end
 
   def edit
-    @venue = Venue.find_by(params[:id])
+    @venue = Venue.find(params[:id])
   end
 
   def update
-    @venue = Venue.find_by(params[:id])
+    @venue = Venue.find(params[:id])
     if @venue.update(venue_params)
       redirect_to @venue
     end
   end
 
   def destroy
-    @venue = Venue.find_by(params[:id])
+    @venue = Venue.find(params[:id])
     @venue.destroy
     flash[:notice] = "Account Deleted."
     # redirect_to new_venue_path
