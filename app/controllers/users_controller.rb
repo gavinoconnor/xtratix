@@ -16,22 +16,22 @@ class UsersController < ApplicationController
  end
 
    def show
-     @user = User.find_by(params[:id])
+     @user = User.find(params[:id])
    end
 
    def edit
-     @user = User.find_by(params[:id])
+     @user = User.find(params[:id])
    end
 
    def update
-     @user = User.find_by(params[:id])
+     @user = User.find(params[:id])
      if @user.update(user_params)
        redirect_to @user
      end
    end
 
    def destroy
-     @user = User.find_by(params[:id])
+     @user = User.find(params[:id])
      @user.destroy
      flash[:notice] = "Account Deleted."
      # redirect_to new_user_path
