@@ -1,1 +1,5 @@
 <h1>Ticket Index</h1>
+
+<%@tickets.each do |ticket| %>
+<%=button_to ticket.artist_name, ticket_path(ticket.id), method: :get%><br>
+<%end%>

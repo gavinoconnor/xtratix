@@ -1,12 +1,6 @@
 <h1>Venue Index</h1>
 
-<% results = @remote.events('Iron Maiden') %>
-<%=results.name%>
-
-<ul>
-<% @venues.each do |venue| %>
-<li>
-<%= link_to @venue.name, venue_path(venue) %>
-</li>
-<% end %>
-</ul>
+<%response = @remote.events('Iron Maiden') %>
+<%response.results.each do |result|%>
+<%=result.venue.metro_area.state%>
+<%end%>

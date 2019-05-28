@@ -1,8 +1,4 @@
 <h1> Ticket Info </h1>
 
-<%=@ticket.name%>
-
-
-<%# add venue
-add date
-add ticket holder%> %>
+<%=@ticket.artist_name%>
+<%=button_to "users attending", user_path(@tickets.user.id), method: :get%>

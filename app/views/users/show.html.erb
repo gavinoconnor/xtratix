@@ -17,3 +17,9 @@
 <%@user.friends.each do |friend|%>
 <%=link_to friend.name, user_path(friend.id)%><br>
 <%end%>
+
+<h2> My Tickets </h2>
+
+<%@user.tickets.each do |ticket| %>
+<%=ticket.artist_name%>
+<%end%>
