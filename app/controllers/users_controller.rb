@@ -13,6 +13,7 @@ class UsersController < ApplicationController
    if @user.save
      redirect_to @user
    end
+ end
 
    def show
      @user = User.find_by(params[:id])
@@ -26,6 +27,7 @@ class UsersController < ApplicationController
      @user = User.find_by(params[:id])
      if @user.update(user_params)
        redirect_to @user
+     end
    end
 
    def destroy
@@ -33,8 +35,8 @@ class UsersController < ApplicationController
      @user.destroy
      flash[:notice] = "Account Deleted."
      # redirect_to new_user_path
-
    end
+
 
    private
 
@@ -44,7 +46,8 @@ class UsersController < ApplicationController
        :location,
        :age,
        :relationship,
-       :gender
+       :gender,
+       :password_digest
      )
    end
 
