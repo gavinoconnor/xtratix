@@ -1,20 +1,12 @@
-<h1> New User Form </h1>
+<h1> New User Sign Up </h1>
 
-<%=form_for @user do |f|%>
-<%=f.label "Name" %>
-<%=f.text_field :name %>
+<h4><%= flash[:notice] %></h4>
 
-<%=f.label "Location" %>
-<%=f.text_field :location %>
+<%= form_for @user do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+  <%= f.label :password %>
+  <%= f.text_field :password %>
 
-<%=f.label "Age" %>
-<%=f.number_field :age %>
-
-<%=f.label "Relationship Status" %>
-<%=f.text_field :relationship %>
-
-<%=f.label "Gender" %>
-<%=f.text_field :gender %>
-
-<%=f.submit "Submit" %>
-<%end%>
+  <%= f.submit %>
+<% end %>
