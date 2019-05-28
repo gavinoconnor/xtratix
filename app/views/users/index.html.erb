@@ -1,9 +1,12 @@
-<h1> Users#Index</h1>
+<h1> Users Index</h1>
 
+<ul>
 <%@users.each do |user| %>
-<%=user.name%><br>
+<li>
+<%= link_to user.name, user_path(user)%><br>
+</li>
 <%end%>
-
+</ul>
 
 <hr>
 
