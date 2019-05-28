@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action :authorized, only: [:new, :create]
 
   def index
     @users = User.all
@@ -9,10 +10,9 @@ class UsersController < ApplicationController
   end
 
   def create
-   @user = User.new(user_params)
-   if @user.save
+   @user = User.create(user_params)
+   session[:user_id] = @user.id
      redirect_to @user
-   end
  end
 
    def show
@@ -42,12 +42,12 @@ class UsersController < ApplicationController
 
    def user_params
      params.require(:user).permit(
-       :name,
+       :username,
        :location,
        :age,
        :relationship,
        :gender,
-       :password_digest
+       :password
      )
    end
 

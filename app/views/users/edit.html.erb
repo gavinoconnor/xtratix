@@ -1,10 +1,12 @@
-<h1> Hi, <%= @user.name %> </h1>
+<h1> Hi, <%= @user.username %> </h1>
+
 
 <h3>Edit your info below:</h3>
 
 <%=form_for @user do |f|%>
+
 <%=f.label "Name" %>
-<%=f.text_field :name %>
+<%=f.text_field :username %>
 
 <%=f.label "Location" %>
 <%=f.text_field :location %>
@@ -19,4 +21,5 @@
 <%=f.text_field :gender %>
 
 <%=f.submit "Submit" %>
+
 <%end%>
