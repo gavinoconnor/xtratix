@@ -1,11 +1,6 @@
 <h1>Venue Index</h1>
 
-<% @venues.each do |venue|%>
-<%=link_to venue.id
-
-
-<%=form_tag(venues_path, method: :get) do %>
-<%=label_tag("Search by venue:") %>
-<%=text_field_tag(:search, params[:search])%>
-<%= submit_tag("Search")%>
-<%end%>
+<%= form_for @venue, :venues => {:action => 'show'} do |f| %>
+<%= f.collection_select :id, @venues, :id, :name %>
+<%= f.submit "Select Venue"%>
+<% end %>
