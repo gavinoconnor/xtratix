@@ -1,5 +1,14 @@
 <h1>Ticket Index</h1>
 
+
+<h4>Search by Artist:</h4>
+
+<%= form_tag(tickets_path, method: :get) do %>
+<%= text_field_tag(:term, params[:term]) %>
+<%= submit_tag 'Search', name: nil %>
+
+<% end %>
+
 <%@tickets.each do |ticket| %>
 <p><%=link_to ticket.artist_name, ticket_path(ticket.id)%></p>
 <%end%>

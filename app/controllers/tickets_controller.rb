@@ -1,7 +1,7 @@
 class TicketsController < ApplicationController
 
   def index
-    @tickets = Ticket.all
+    @tickets = Ticket.search(params[:term])
   end
 
   def new
@@ -47,7 +47,8 @@ class TicketsController < ApplicationController
       :available,
       :user_id,
       :venue_id,
-      :artist_name
+      :artist_name,
+      :term
     )
   end
 
