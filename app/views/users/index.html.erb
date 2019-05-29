@@ -1,11 +1,14 @@
 <h1> Users Index</h1>
 
-<ul>
-<%@users.each do |user| %>
-<li>
-<%= link_to user.username, user_path(user)%><br>
-<%=button_to "add friend", user_path(user.id)%>
-<%end%>
+<% for user in @users %>
+  <div class="user">
+    <p>
+      <strong><%=h link_to user.username, user_path(user.id) %></strong>
+      <%= button_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
+      <div class="clear"></div>
+    </p>
+  </div>
+<% end %>
 </li>
 </ul>
 

@@ -1,10 +1,16 @@
-class FriendshipController < ApplicationController
-  #
-  # def update
-  #   add_friend(params[:user_id])
-  #   session[:friendship] = []
-  #   session[:friendship] << params[:user_id]
-  #   redirect_to users_path
-  # end
+class FriendshipsController < ApplicationController
 
+  def create
+    @friendship = current_user.friendships.build(:friend_id => params[:friend_id])
+    if @friendship.save
+      redirect_to current_user
+    else
+      redirect_to users_path
+    end
+  end
+  def destroy
+    @friendship = current_user.friendships.find(params[:id])
+    @friendship.destroy
+    redirect_to current_user
+  end
 end
