@@ -2,11 +2,9 @@
 
 <% for user in @users %>
   <div class="user">
-    <p>
-      <strong><%=h link_to user.username, user_path(user.id) %></strong>
-      <%= button_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
+      <p><strong><%=h link_to user.username, user_path(user.id) %></strong>
+      <%= button_to "Add Friend", friendships_path(:friend_id => user), :method => :post %></p>
       <div class="clear"></div>
-    </p>
   </div>
 <% end %>
 </li>
