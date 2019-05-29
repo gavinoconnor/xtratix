@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   skip_before_action :authorized, only: [:new, :create]
 
   def index
-    @users = User.all
+    @users = User.filter(params.slice(:username, :location, :age))
   end
 
   def new
