@@ -7,11 +7,12 @@ class Venue < ApplicationRecord
       venue = Venue.find_by(name: search)
       if venue
         self.where(venue_id: venue)
-        
       else
         Venue.all
       end
     end
     Venue.all
   end
+
+
 end

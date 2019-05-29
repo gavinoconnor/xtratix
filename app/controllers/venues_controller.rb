@@ -1,8 +1,8 @@
 class VenuesController < ApplicationController
 
   def index
-    @venues = Venue.search(params[:search])
-    byebug
+    @venues = Venue.all
+    @venue = Venue.new
   end
 
   def new
