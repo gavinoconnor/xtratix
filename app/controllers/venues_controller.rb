@@ -1,8 +1,7 @@
 class VenuesController < ApplicationController
 
   def index
-    @venues = Venue.all
-    @venue = Venue.new
+    @venues = Venue.search(params[:term])
   end
 
   def new
@@ -43,7 +42,8 @@ class VenuesController < ApplicationController
   def venue_params
     params.require(:venue).permit(
       :name,
-      :address
+      :address,
+      :term
     )
   end
 
