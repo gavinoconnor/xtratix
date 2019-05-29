@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy', as: 'logout'
 
-  post '/venues,', to: 'venues#search', as: 'search'
+  get '/venues', to: 'venues#search', as: 'search'
 end
