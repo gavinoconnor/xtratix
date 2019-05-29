@@ -20,7 +20,7 @@
   <h2> My Tickets </h2>
 
   <%@user.tickets.each do |ticket| %>
-    <%=link_to ticket.artist_name, ticket_path(ticket)%>
+    <p><%=link_to ticket.artist_name, ticket_path(ticket)%></p>
   <% end %>
 
   <h2> Post New Ticket </h2>
