@@ -1,7 +1,3 @@
-  <h1> Ticket Info </h1>
+<h1> Ticket Info </h1>
 
-  <h2><%=@ticket.artist_name%></h2>
-
-  <h3>Users with tix:</h3>
-  <% @tickets.map {|ticket| ticket.user.id == ticket.user_id} %>
-  <p><%= link_to @ticket.user.username, user_path(@ticket.user.id) %></p>
+<%=@ticket.artist_name%>

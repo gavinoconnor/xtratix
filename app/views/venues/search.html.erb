@@ -1,0 +1,8 @@
+<h1> Venue Search </h1>
+
+<%@response.results.each do |venue|%>
+<%=venue.display_name%>
+<%end%>
+
+
+<%= select("venue", "name"), @venues.all.collect(&:name)) %>
