@@ -1,0 +1,6 @@
+
+
+<%=form_tag(select_path(@venue), method: :get) do %>
+<%= collection_select :venue, :id, Venue.all, :id, :name%>
+<%= submit_tag("Select Venue")%>
+<%end%>
