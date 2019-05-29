@@ -4,4 +4,6 @@
 <p><%=@venue.address%></p>
 
 <h3>Available tickets:</h3>
-<p><%=@venue.tickets%></p>
+<%@venue.tickets.each do |ticket|%>
+<p> <%= link_to ticket.artist_name, ticket_path(ticket) %>
+<% end %>
