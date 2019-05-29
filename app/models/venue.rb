@@ -6,7 +6,8 @@ class Venue < ApplicationRecord
     if search
       venue = Venue.find_by(name: search)
       if venue
-        self.where(name: venue)
+        self.where(venue_id: venue)
+        
       else
         Venue.all
       end

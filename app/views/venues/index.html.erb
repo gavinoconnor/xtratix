@@ -1,5 +1,8 @@
 <h1>Venue Index</h1>
 
+<% @venues.each do |venue|%>
+<%=link_to venue.id
+
 
 <%=form_tag(venues_path, method: :get) do %>
 <%=label_tag("Search by venue:") %>

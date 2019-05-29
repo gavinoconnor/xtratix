@@ -2,6 +2,7 @@ class VenuesController < ApplicationController
 
   def index
     @venues = Venue.search(params[:search])
+    byebug
   end
 
   def new
