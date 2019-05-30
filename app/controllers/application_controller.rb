@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :authorized, :remote
+  before_action :authorized
   helper_method :current_user
 
   def current_user
@@ -14,9 +14,9 @@ class ApplicationController < ActionController::Base
     redirect_to login_path unless logged_in?
   end
 
-  def remote
-    @remote = Songkickr::Remote.new('nu80rqJInvFVVDU4')
-  end
+  # def remote
+  #   @remote = Songkickr::Remote.new('nu80rqJInvFVVDU4')
+  # end
 
 
 end

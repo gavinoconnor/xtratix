@@ -46,8 +46,3 @@ class VenuesController < ApplicationController
       :term
     )
   end
-
-  def search
-    @response = @remote.events.results.venue
-  end
-end

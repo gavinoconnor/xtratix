@@ -4,15 +4,40 @@
     <title>XtraTix</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <!-- <link rel="stylesheet" href="styles/debug.css"> -->
+    <link rel="stylesheet" href="styles/helpers.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <style>
+
+
+    </style>
+
   </head>
   <body>
-    <!-- hero  -->
-    <section class="hero is-primary">
+
+    <!-- hero with navbar -->
+
+    <section class="hero has-background-primary">
       <div class="hero-body">
+
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button is-primary">
+                <strong>Sign up</strong>
+              </a>
+              <a class="button is-light">
+                Log in
+              </a>
+            </div>
+          </div>
+        </div>
+        </nav>
+
         <div class="container">
         <h1 class="title is-1 has-text-centered has-text-weight-bold">XtraTiX</h1>
         <h2 class="subtitle has-text-centered has-text-weight-semibold">Share tickets and make new friends!</h2>
@@ -20,10 +45,25 @@
       </div>
     </section>
 
-    <%= yield %>
+    <section class="section has-background-light">
+			<div class="container">
+        <%= yield %>
+        </div>
+      </section>
 
+      <span class="icon is-large">
+        <i class="fab fa-github" aria-hidden="true"></i>
+      </span>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item">
+            Home
+        </a>
 
-
+        <a class="navbar-item">
+          About
+        </a>
 
   </body>
 </html>

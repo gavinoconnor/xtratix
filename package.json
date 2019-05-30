@@ -1,5 +1,7 @@
 {
   "name": "XtraTix",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "bulma-start": "0.0.3"
+  }
 }
