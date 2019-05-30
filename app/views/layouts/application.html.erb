@@ -4,12 +4,26 @@
     <title>XtraTix</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+    <!-- hero  -->
+    <section class="hero is-primary">
+      <div class="hero-body">
+        <div class="container">
+        <h1 class="title is-1 has-text-centered has-text-weight-bold">XtraTiX</h1>
+        <h2 class="subtitle has-text-centered has-text-weight-semibold">Share tickets and make new friends!</h2>
+        </div>
+      </div>
+    </section>
+
     <%= yield %>
+
+
+
+
   </body>
 </html>
