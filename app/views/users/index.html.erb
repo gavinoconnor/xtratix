@@ -7,21 +7,22 @@
 
 <% end %>
 <br />
-
-
-<% for user in @users %>
-  <div class="user">
-      <p><strong><%=h link_to user.username, user_path(user.id) %></strong>
+<div class="pls-work">
+  <div class="album-grid">
+  <% for user in @users %>
+    <div class="inside-album-grid">
+        <strong><%=h link_to user.username, user_path(user.id) %></strong>
+          <br />
+          <% if user.avatar.attached? %>
+          <img src="<%=(url_for(user.avatar))%>">
+          <% end %>
+        <%= button_to "Add Friend", friendships_path(:friend_id => user), :method => :post, :class => "button is-info" %>
         <br />
-        <% if user.avatar.attached? %>
-        <img src="<%=(url_for(user.avatar))%>">
-        <% end %>
-      <%= button_to "Add Friend", friendships_path(:friend_id => user), :method => :post %></p>
-      <br />
-      <div class="clear"></div>
+        <div class="clear"></div>
+    </div>
+  <% end %>
   </div>
-<% end %>
-</li>
-</ul>
+</div>
+
 
 <hr>

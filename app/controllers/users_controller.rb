@@ -22,6 +22,7 @@ class UsersController < ApplicationController
 
    def show
      @user = User.find(params[:id])
+     # flash.now.notice = "Ticket request has been sent!"
    end
 
    def edit

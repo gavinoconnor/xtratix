@@ -1,17 +1,17 @@
   <h1><strong><%=@user.username%>'s Profile </strong></h1>
 
-    <% if @user.avatar.attached? %>
-      <img src="<%=(url_for(@user.avatar))%>">
-    <% end %>
-    <br />
+  <% if @user.avatar.attached? %>
+    <img src="<%=(url_for(@user.avatar))%>">
+  <% end %>
+  <br />
 
-    <br />
-    <% if current_user == @user %>
-      <h2><strong> My Info </strong> </h2>
-    <% else %>
-      <h2><strong> <%=@user.username%>'s Info </strong></h2>
-    <% end %>
-    <br />
+  <br />
+  <% if current_user == @user %>
+    <h2><strong> My Info </strong> </h2>
+  <% else %>
+    <h2><strong> <%=@user.username%>'s Info </strong></h2>
+  <% end %>
+  <br />
 
   <h4><strong>Name:</strong></h4> <%=@user.username%><br>
   <h4><strong>Location:</strong></h4> <%=@user.location%><br>
@@ -21,11 +21,12 @@
 
 
   <% if current_user == @user %>
-    <%= button_to "Edit Account", edit_user_path, method: :get %>
+    <%= button_to "Edit Account", edit_user_path, method: :get, :class => "button is-warning" %>
   <% end %>
+  <br />
 
   <% if current_user == @user %>
-    <%= button_to 'Delete Account', user_path(@user), method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= button_to 'Delete Account', user_path(@user), method: :delete, data: { confirm: 'Are you sure?' }, :class => "button is-danger"%>
   <% end %>
 
   <br />
@@ -39,15 +40,16 @@
   <% @user.tickets.each do |ticket| %>
     <p><%=link_to ticket.artist_name, ticket_path(ticket)%>
       <% if current_user != @user %>
-      <p>Ask to join <%= @user.username %> at this show? <%= button_to "Introduce Us" %>
-    </p>
+      <p>Ask to join <%= @user.username %> at this show?
+      <%= button_to "Request Ticket", user_path(@user), method: :get, data: { confirm: 'Request sent!' }, :class => "button is-info" %>
+      </p>
       <% end %>
   <% end %>
 
   <br /><br />
   <% if current_user == @user %>
     <h2> <strong>Post New Ticket</strong> </h2>
-  <%= button_to "Post Ticket", new_ticket_path, method: :get %>
+  <%= button_to "Post Ticket", new_ticket_path, method: :get, :class => "button is-info" %>
   <% end %>
   <br />
 
@@ -59,5 +61,9 @@
 
   <% for friendship in @user.friendships %>
     <p><%= link_to friendship.friend.username, user_path(friendship.friend.id) %></p>
-      <%= button_to "Delete", friendship, :method => :delete %>
+      <%= button_to "Delete", friendship, :method => :delete, :class => "button is-danger is-small" %>
   <% end %>
+  <br />
+
+  
+  <%= button_to "All Users", users_path, method: :get, :class => "button is-warning" %>
