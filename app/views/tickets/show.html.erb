@@ -1,13 +1,15 @@
-  <h1> Ticket Info: </h1> <br />
+  <h1><strong> Ticket Info: </strong> </h1> <br />
 
-  <h2>Artist:  <%=@ticket.artist_name%></h2>
+  <h2><strong>Artist:</strong> <%=@ticket.artist_name%></h2>
 
-  <h2>Venue: <%= link_to @ticket.venue.name, venue_path(@ticket.venue.id) %></h2>
+  <h2><strong>Venue:</strong> <%= link_to @ticket.venue.name, venue_path(@ticket.venue.id) %></h2>
 
-  <h2>Location: <%= @ticket.venue.address %>
+  <h2><strong>Location:</strong> <%= @ticket.venue.address %>
 
-  <h3>Date: <%= @ticket.std_date %>
-
-  <h3>Users with tix:</h3>
+  <h3><strong>Date:</strong> <%= @ticket.std_date %>
+<br />
+  <h3><strong>Users with tix:</strong></h3>
   <% @tickets.map {|ticket| ticket.user.id == ticket.user_id} %>
   <p><%= link_to @ticket.user.username, user_path(@ticket.user.id) %></p>
+<br />
+<%= link_to 'Back', :back, :class => "button is-notification is-small" %>
