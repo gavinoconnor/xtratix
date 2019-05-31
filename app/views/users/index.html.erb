@@ -1,9 +1,23 @@
-<h1> Users Index</h1>
+<h1> <strong>Users Index</strong></h1>
+<br />
+<h4>Search by user name:</h4>
+<%= form_tag(users_path, method: :get) do %>
+<%= text_field_tag(:term, params[:term]) %>
+<%= submit_tag 'Search', name: nil %>
+
+<% end %>
+<br />
+
 
 <% for user in @users %>
   <div class="user">
       <p><strong><%=h link_to user.username, user_path(user.id) %></strong>
+        <br />
+        <% if user.avatar.attached? %>
+        <img src="<%=(url_for(user.avatar))%>">
+        <% end %>
       <%= button_to "Add Friend", friendships_path(:friend_id => user), :method => :post %></p>
+      <br />
       <div class="clear"></div>
   </div>
 <% end %>

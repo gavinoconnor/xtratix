@@ -46,3 +46,5 @@ class VenuesController < ApplicationController
       :term
     )
   end
+
+end

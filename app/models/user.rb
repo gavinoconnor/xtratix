@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   include Filterable
   has_secure_password
+  has_one_attached :avatar
 
   validates :username, presence: true, uniqueness: true
 
@@ -10,4 +11,13 @@ class User < ApplicationRecord
   has_many :inverse_friends, :through => :inverse_friendships, :source => :user
   has_many :tickets
   has_many :venues, through: :tickets
+
+  def self.search(term)
+    if term
+      where('username LIKE ?', "%#{term}%")
+      else
+        all
+      end
+  end
+
 end
