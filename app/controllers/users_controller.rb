@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   skip_before_action :authorized, only: [:new, :create]
 
   def index
-    @users = User.filter(params.slice(:username, :location, :age))
+    @users = User.search(params[:term])
   end
 
   def new
@@ -11,9 +11,9 @@ class UsersController < ApplicationController
 
   def create
    @user = User.new(user_params)
-   if @user.save
-   session[:user_id] = @user.id
-     redirect_to @user
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to @user
    else
      flash[:notice] = "Invalid username or password"
      render :new
@@ -30,6 +30,7 @@ class UsersController < ApplicationController
 
    def update
      @user = User.find(params[:id])
+     @user.avatar.attach(params[:avatar])
      if @user.update(user_params)
        redirect_to @user
      end
@@ -52,7 +53,9 @@ class UsersController < ApplicationController
        :age,
        :relationship,
        :gender,
-       :password
+       :password,
+       :avatar,
+       :term
      )
    end
 

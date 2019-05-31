@@ -1,50 +1,63 @@
-  <h1><%=@user.username%>'s Profile </h1>
+  <h1><strong><%=@user.username%>'s Profile </strong></h1>
 
-    <% if current_user == @user %>
-      <h2> My Info </h2>
-    <% else %>
-      <h2> <%=@user.username%>'s Info </h2>
+    <% if @user.avatar.attached? %>
+      <img src="<%=(url_for(@user.avatar))%>">
     <% end %>
+    <br />
 
-  <h4>Name:</h4> <%=@user.username%><br>
-  <h4>Location:</h4> <%=@user.location%><br>
-  <h4>Age:</h4> <%=@user.age%><br>
-  <h4>Relationship Status:</h4> <%=@user.relationship%><br>
-  <h4>Gender:</h4> <%=@user.gender%><br><br>
+    <br />
+    <% if current_user == @user %>
+      <h2><strong> My Info </strong> </h2>
+    <% else %>
+      <h2><strong> <%=@user.username%>'s Info </strong></h2>
+    <% end %>
+    <br />
+
+  <h4><strong>Name:</strong></h4> <%=@user.username%><br>
+  <h4><strong>Location:</strong></h4> <%=@user.location%><br>
+  <h4><strong>Age:</strong></h4> <%=@user.age%><br>
+  <h4><strong>Relationship Status:</strong></h4> <%=@user.relationship%><br>
+  <h4><strong>Gender:</strong></h4> <%=@user.gender%><br><br>
+
 
   <% if current_user == @user %>
     <%= button_to "Edit Account", edit_user_path, method: :get %>
   <% end %>
-    <br />
+
   <% if current_user == @user %>
     <%= button_to 'Delete Account', user_path(@user), method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
 
-
+  <br />
   <% if current_user == @user %>
-      <h2> My Tickets </h2>
+      <h2> <strong>My Tickets</strong> </h2>
     <% else %>
-      <h2> <%=@user.username.capitalize%>'s Tickets </h2>
+      <h2> <%=@user.username%>'s Tickets </h2>
     <% end %>
+
 
   <% @user.tickets.each do |ticket| %>
     <p><%=link_to ticket.artist_name, ticket_path(ticket)%>
-      Available: <%= check_box_tag 'available[]', ticket.available %>
+      <% if current_user != @user %>
+      <p>Ask to join <%= @user.username %> at this show? <%= button_to "Introduce Us" %>
     </p>
+      <% end %>
   <% end %>
 
+  <br /><br />
   <% if current_user == @user %>
-    <h2> Post New Ticket </h2>
-  <% end %>
+    <h2> <strong>Post New Ticket</strong> </h2>
   <%= button_to "Post Ticket", new_ticket_path, method: :get %>
+  <% end %>
+  <br />
 
   <% if current_user == @user %>
-    <h2> My Friends </h2>
+    <h2> <strong>My Friends</strong> </h2>
   <% else %>
-    <h2><%=@user.username.capitalize%>'s Friends </h2>
+    <h2><strong><%=@user.username%>'s Friends </strong></h2>
   <% end %>
 
   <% for friendship in @user.friendships %>
-    <p><%= link_to friendship.friend.username %></p>
+    <p><%= link_to friendship.friend.username, user_path(friendship.friend.id) %></p>
       <%= button_to "Delete", friendship, :method => :delete %>
   <% end %>
