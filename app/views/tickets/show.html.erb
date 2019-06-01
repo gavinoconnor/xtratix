@@ -1,13 +1,15 @@
-  <h1><strong> Ticket Info: </strong> </h1> <br />
+  <h1>Info for <strong> <%= @ticket.artist_name %> </strong> </h1> <br />
 
   <h2><strong>Artist:</strong> <%=@ticket.artist_name%></h2>
-
+  <br />
   <h2><strong>Venue:</strong> <%= link_to @ticket.venue.name, venue_path(@ticket.venue.id) %></h2>
-
+  <br />
   <h2><strong>Location:</strong> <%= @ticket.venue.address %>
-
+  <br />
+  <br />
   <h3><strong>Date:</strong> <%= @ticket.std_date %>
-<br />
+  <br />
+  <br />
   <h3><strong>Users with tix:</strong></h3>
   <% @tickets.map {|ticket| ticket.user.id == ticket.user_id} %>
   <p><%= link_to @ticket.user.username, user_path(@ticket.user.id) %></p>
