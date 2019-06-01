@@ -33,7 +33,7 @@ User.create!(username: "Christian Duncan", location: "New York City, NY", age: 2
 User.create!(username: "Jason Gomez", location: "New Brunswick, NJ", age: 28, relationship: "Single", gender: "Male", password: "abc123")
 
 
-  response = RestClient.get("https://api.songkick.com/api/3.0/metro_areas/7644/calendar.json?apikey=nu80rqJInvFVVDU4&min_date=2019-05-20&max_date=2019-06-30")
+  response = RestClient.get("https://api.songkick.com/api/3.0/metro_areas/7644/calendar.json?apikey=nu80rqJInvFVVDU4")
 
  response_data = JSON.parse(response)
  seed_events = response_data["resultsPage"]["results"]["event"]
